@@ -1,0 +1,74 @@
+.free-car-check {
+    background-color: #edf2f3;
+    background-size: cover;
+    background-position: center;
+    padding: 70px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 30px auto;
+    font-family: Arial, sans-serif;
+    color: #173750;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.free-car-check i {
+    font-size: 23px;
+    margin-right: 10px;
+}
+
+.free-car-check h2 {
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+.free-car-check p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+.free-car-check h3 {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.free-car-check .icon-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.free-car-check .icon-list ul {
+    list-style: none;
+    padding: 0;
+    width: 45%;
+}
+
+.free-car-check .icon-list li {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #173750;
+}
+
+.free-car-check .icon-list li i {
+    margin-right: 10px;
+    color: #173750;
+}
+
+.free-car-check::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: -1;
+}

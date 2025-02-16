@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚗 ComparandoRuedas - Datos de tu Coche</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/estilos.css">
+    <link rel="stylesheet" href="/static/css/galeria-vehiculo.css">
+    <link rel="stylesheet" href="/static/css/datos.css">
+    <link rel="stylesheet" href="/static/css/seccion-videos.css">
+    <link rel="stylesheet" href="/static/css/herramientas.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/static/img/logo2.png" alt="ComparandoRuedas">
+        </div>
+        <div class="menu-icon" onclick="ToggleMenu()">
+            ☰
+        </div>
+        <nav id="menu">
+            <ul>
+              <li><a href="/src/index.html">Inicio</a></li>
+              <li><a href="/src/vehiculo.html">Datos del vehículo</a></li>
+              <li><a href="/src/datos-dgt.html">Datos de la DGT</a></li>
+              <li><a href="/src/mercado.html">Precio de mercado</a></li>
+              <li><a href="mailto:robertoconnolly100@gmail.com">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <script src="/static/js/local-storage-parser.js"></script>
+
+    <h1>Los datos de tu vehículo</h1>
+
+    <div id="contenedor-imagenes" style="margin-top: 20px;">
+      <img onclick="GaleriaVehiculo.AbrirModal('/static/img/coche-2.png')" src="/static/img/coche-2.png" alt="">
+    </div>
+
+    <div id="modal-galeria-vehiculo" onclick="GaleriaVehiculo.CerrarModal()">
+      <span class="cerrar-modal-galeria" onclick="GaleriaVehiculo.CerrarModal()">&times;</span>
+      <img id="modal-img-galeria-vehiculo" src="" alt="Imagen del coche en grande">
+    </div>
+    <script src="/static/js/api-google-img.js"></script>
+
+    <br><br>
+    
+    <div class="div-detalles-vehiculo">
+        <h1 id="titulo-detalles">Tu COCHE MODELO</h1>
+        <h3>Aquí tienes mas detalles sobre este coche de manera <span>GRATUITA</span></h3>
+        <p>No nos hacemos responsables de los datos dados, estos datos son puramente orientativos.</p>
+
+        <div class="informacion-vehiculo">
+            <ul>
+                <li id="descripcion-vehiculo">
+                  <i class="fa fa-car"></i> Descripción: SEAT MII
+                </li>
+                <li id="puertas">
+                  <i class="fa fa-door-open"></i> Puertas: N/A
+                </li>
+                <li id="potencia-dinamica">
+                  <i class="fa fa-bolt"></i> Potencia Dinámica: 83.0
+                </li>
+                <li id="tamaño-motor">
+                  <i class="fa fa-cogs"></i> Tamaño del Motor: N/A
+                </li>
+                <li id="combustible">
+                  <i class="fa fa-gas-pump"></i> Combustible: E
+                </li>
+              </ul>
+              
+              <ul>
+                <li id="marca">
+                  <i class="fa fa-registered"></i> Marca: SEAT
+                </li>
+                <li id="modelo">
+                  <i class="fa fa-info-circle"></i> Modelo: MII
+                </li>
+                <li id="fecha-matriculacion">
+                  <i class="fa fa-calendar"></i> Fecha de Matriculación: 16/03/2021
+                </li>
+                <li id="año-matriculacion">
+                  <i class="fa fa-calendar-alt"></i> Año de Matriculación: 2021
+                </li>
+                <li id="tipo-variacion">
+                  <i class="fa fa-car-battery"></i> Tipo de Variación: Eléctrico 5 puertas
+                </li>
+              </ul>
+          </div>
+    </div>
+    <script type="module">
+      import { DatosVehiculo } from "../static/js/datos-vehiculo.js"
+      const datos_vehiculo = new DatosVehiculo(vehiculo);
+    </script>
+
+    <br><br>
+
+    <div id="contenedor-videos" class="contenedor-videos">
+        <!-- COMPARATIVAS -->
+        <div class="video">
+            <a id="video-comparativa" href="" class="enlace-video" title="Seat Mii Electric y Skoda Citigo e iV: Eléctricos y urbanos">
+                <div class="contenedor-imagen">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icono-video" viewBox="0 0 64 64">
+                        <path d="M32,64C14.3,64,0,49.7,0,32S14.3,0,32,0s32,14.3,32,32S49.7,64,32,64z M32,4C16.5,4,4,16.5,4,32s12.5,28,28,28s28-12.5,28-28S47.5,4,32,4z"></path>
+                        <polygon points="26,46.9 26,17.1 44,32"></polygon>
+                    </svg>
+                    <img src="https://a.ccdn.es/cnet/contents/media/resources/2020/6/1262833.jpg/432x242cut/" alt="Imagen del video" class="imagen-video">
+                </div>
+    
+                <div class="informacion-video">
+                    <div class="etiqueta-comp">
+                        <span class="texto-etiqueta">COMPARATIVAS</span>
+                    </div>
+                </div>
+                
+                <div class="contenido-video">
+                    <p class="titulo-video">Seat Mii Electric y Skoda Citigo e iV: Eléctricos y urbanos</p>
+                    <p class="descripcion-video">Cuestan menos de 20.000€ que pueden ser 15.000 con ayudas</p>
+                </div>
+            </a>
+        </div>
+    
+        <!-- REVIEW -->
+        <div class="video">
+            <a id="video-review" href="" class="enlace-video" title="Review del Seat Mii Electric y Skoda Citigo e iV: ¿Vale la pena comprarlo?">
+                <div class="contenedor-imagen">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icono-video" viewBox="0 0 64 64">
+                        <path d="M32,64C14.3,64,0,49.7,0,32S14.3,0,32,0s32,14.3,32,32S49.7,64,32,64z M32,4C16.5,4,4,16.5,4,32s12.5,28,28,28s28-12.5,28-28S47.5,4,32,4z"></path>
+                        <polygon points="26,46.9 26,17.1 44,32"></polygon>
+                    </svg>
+                    <img src="https://a.ccdn.es/cnet/contents/media/resources/2020/6/1262833.jpg/432x242cut/" alt="Imagen del video" class="imagen-video">
+                </div>
+        
+                <div class="informacion-video">
+                    <div class="etiqueta-review">
+                        <span class="texto-etiqueta">REVIEW</span>
+                    </div>
+                </div>
+                
+                <div class="contenido-video">
+                    <p class="titulo-video">Review del Seat Mii Electric: ¿Una buena opción?</p>
+                    <p class="descripcion-video">Analizamos a fondo el Seat Mii Eléctrico uno de los coches eléctricos urbanos más baratos del mercado.</p>
+                </div>
+            </a>
+        </div>
+    </div>
+    <script type="module">
+      import { GaleriaVideos, CLAVE_API_YOUTUBE } from '../static/js/api-google-video.js' 
+
+      const galeria_videos = new GaleriaVideos(CLAVE_API_YOUTUBE);
+      galeria_videos.BuscarVideos(vehiculo.GetDescripcion(), "comparativa");
+      galeria_videos.BuscarVideos(vehiculo.GetDescripcion(), "review");
+    </script>
+
+    <br><br>
+
+    <div class="seccion">
+        <h2>Nuestras herramientas</h2>
+        <div class="div-botones">
+          <a href="/src/vehiculo.html" class="boton-herramienta">
+            <img width="600px" alt="Imagen mecánico coche" src="https://cms.webuyanycar.com/globalassets/pages/free-car-check/mot.png" class="icon">
+            <span>Datos del vehículo</span>
+          </a>
+          <a href="/src/datos-dgt.html" class="boton-herramienta">
+            <img width="600px" alt="Logo de la DGT" src="/static/img/dgt.png" class="icon">
+            <span>Datos de la DGT</span>
+          </a>
+          <a href="/src/mercado.html" class="boton-herramienta">
+            <img width="600px" alt="Imagen de precio" src="/static/img/precio.png" class="icon">
+            <span>Precio de mercado</span>
+          </a>
+        </div>
+    </div>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>

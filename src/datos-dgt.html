@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚗 ComparandoRuedas - ¿Te han robado tu Coche?</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/estilos.css">
+    <link rel="stylesheet" href="/static/css/galeria-vehiculo.css">
+    <link rel="stylesheet" href="/static/css/datos.css">
+    <link rel="stylesheet" href="/static/css/seccion-videos.css">
+    <link rel="stylesheet" href="/static/css/herramientas.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/static/img/logo2.png" alt="ComparandoRuedas">
+        </div>
+        <div class="menu-icon" onclick="ToggleMenu()">
+            ☰
+        </div>
+        <nav id="menu">
+            <ul>
+                <li><a href="/src/index.html">Inicio</a></li>
+                <li><a href="/src/vehiculo.html">Datos del vehículo</a></li>
+                <li><a href="/src/datos-dgt.html">Datos de la DGT</a></li>
+                <li><a href="/src/mercado.html">Precio de mercado</a></li>
+                <li><a href="mailto:robertoconnolly100@gmail.com">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1>Datos de la DGT</h1>
+
+    <br><br>
+    
+    <div class="div-detalles-vehiculo">
+        <h1 id="titulo-detalles">Tu COCHE MODELO</h1>
+        <h3>Aquí puedes consultar cuando se matriculo por primera vez el vehículo de manera <span>GRATUITA</span></h3>
+        <p>No nos hacemos responsables de los datos dados, estos datos son puramente orientativos.</p>
+
+        <div class="informacion-vehiculo">
+            <ul>
+                <li id="año-matriculacion">
+                    <i class="fa fa-calendar-alt"></i> Año de Matriculación: 2021
+                </li>
+            </ul>
+              
+            <ul>
+                <li id="fecha-matriculacion">
+                  <i class="fa fa-calendar"></i> Fecha de Matriculación: 16/03/2021
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <div id="estado_coche" class="estado-coche no-robado">
+        <i class="fa fa-car"></i>
+        <h1>¡Enhorabuena no te han robado el coche!</h1>
+        <p>Pero te recomiendo que mires este video para que no pase en el futuro...</p><br>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/xve3yJJAQv0?si=e2Qtw8xuP9-nCJoG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <script type="module" src="/static/js/datos-dgt.js"></script>
+
+    <br><br>
+
+    <div class="seccion">
+        <h2>Nuestras herramientas</h2>
+        <div class="div-botones">
+            <a href="/src/vehiculo.html" class="boton-herramienta">
+                <img width="600px" alt="Imagen mecánico coche" src="https://cms.webuyanycar.com/globalassets/pages/free-car-check/mot.png" class="icon">
+                <span>Datos del vehículo</span>
+              </a>
+              <a href="/src/datos-dgt.html" class="boton-herramienta">
+                <img width="600px" alt="Logo de la DGT" src="/static/img/dgt.png" class="icon">
+                <span>Datos de la DGT</span>
+              </a>
+              <a href="/src/mercado.html" class="boton-herramienta">
+                <img width="600px" alt="Imagen de precio" src="/static/img/precio.png" class="icon">
+                <span>Precio de mercado</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="../static/js/local-storage-parser.js"></script>
+    <script type="module">
+        import { DatosDGT } from '../static/js/datos-dgt.js'
+
+        const datos_dgt = new DatosDGT(vehiculo);
+    </script>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
