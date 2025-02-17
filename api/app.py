@@ -5,7 +5,7 @@ from scraper import ObtenerCochesWallapop
 
 app = Flask(__name__)
 CORS(app)
-archivo_resultados_busqueda = 'wallapop.json'
+archivo_resultados_busqueda = '/api/wallapop.json'
 
 def cargar_resultados():
     try:
@@ -20,17 +20,18 @@ def guardar_resultados_busqueda(resultados):
 
 @app.route('/api/coches', methods=['GET'])
 def obtener_coches():
-    palabra_clave = request.args.get('modelo', default='Seat Mii', type=str)
+    coche = request.args.get('coche', default='Seat Mii', type=str)
+    año = request.args.get('anio', default='Seat Mii', type=str)
     
     resultados_busqueda = cargar_resultados()
     
-    if palabra_clave in resultados_busqueda:
-        print(f"Usando resultados guardados para '{palabra_clave}'")
-        coches = resultados_busqueda[palabra_clave]
+    if coche in resultados_busqueda:
+        print(f"Usando resultados guardados para '{coche}'")
+        coches = resultados_busqueda[coche]
     else:
-        print(f"Buscando coches para '{palabra_clave}'")
-        coches = ObtenerCochesWallapop(palabra_clave)
-        resultados_busqueda[palabra_clave] = coches
+        print(f"Buscando coches para '{coche}'")
+        coches = ObtenerCochesWallapop(coche, año)
+        resultados_busqueda[coche] = coches
         guardar_resultados_busqueda(resultados_busqueda)
     
     return jsonify(coches)
