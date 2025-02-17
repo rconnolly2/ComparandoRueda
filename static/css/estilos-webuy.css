@@ -45,30 +45,25 @@
 .free-car-check .icon-list ul {
     list-style: none;
     padding: 0;
-    width: 45%;
+    display: inline-block;
+    width: auto;
 }
 
 .free-car-check .icon-list li {
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
     margin-bottom: 10px;
     font-size: 16px;
     color: #173750;
+    max-width: 250px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .free-car-check .icon-list li i {
+    flex-shrink: 0;
     margin-right: 10px;
     color: #173750;
-}
-
-.free-car-check::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.3);
-    z-index: -1;
 }

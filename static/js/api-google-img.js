@@ -11,8 +11,8 @@ class GaleriaVehiculo {
 
         const contenedor_imagenes = document.getElementById('contenedor-imagenes');
         contenedor_imagenes.innerHTML = '';
-
-        const url = `https://www.googleapis.com/customsearch/v1?q=${modelo}&cx=${this.CX}&key=${this.API_KEY}&searchType=image&num=7`;
+        
+        const url = `https://www.googleapis.com/customsearch/v1?q=${modelo}&cx=${this.CX}&key=${this.API_KEY}&searchType=image&num=7&start=4`;
 
         try {
             const response = await fetch(url);
@@ -28,11 +28,10 @@ class GaleriaVehiculo {
                     contenedor_imagenes.appendChild(imagen);
                 });
             } else {
-                alert('No se encontraron imágenes para este modelo.');
+                alert('No hay imágenes en Google para este para este modelo.');
             }
         } catch (error) {
-            console.error(error);
-            alert('Ocurrió un error al buscar las imágenes.');
+            console.error(`Error al buscar las imágenes: ${error}`);
         }
     }
 

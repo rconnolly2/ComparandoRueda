@@ -1,5 +1,5 @@
 .div-detalles-vehiculo {
-    padding: 20px;
+    padding: 50px;
     width: 50vw;
     margin: auto;
     background-color: white;
@@ -13,7 +13,18 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    font-size: 25px;
+    font-size: 17px;
+    gap: 20px;
+}
+
+.informacion-vehiculo li {
+    width: 370px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
   
 ul {

@@ -5,7 +5,7 @@ from scraper import ObtenerCochesWallapop
 
 app = Flask(__name__)
 CORS(app)
-archivo_resultados_busqueda = '/api/wallapop.json'
+archivo_resultados_busqueda = 'wallapop.json'
 
 def cargar_resultados():
     try:

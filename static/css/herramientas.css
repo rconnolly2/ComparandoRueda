@@ -1,39 +1,45 @@
 .seccion {
     padding: 40px;
     text-align: center;
-  }
+}
   
-  .div-botones {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
+.div-botones {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
   
-  .boton-herramienta {
-    display: block;
-    background-size: cover;
-    background-position: center;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    margin: 30px auto;
-    background-color: white;
-    color: #173750;
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-  }
+.boton-herramienta {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-size: cover;
+  background-position: center;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  width: 600px;
+  height: 370px;
+  margin: 30px auto;
+  background-color: white;
+  color: #173750;
+  text-align: center;
+}
 
-  .boton-herramienta img {
-    display: block;
-  }
+.boton-herramienta span {
+    font-size: 16px;
+}
+
+.boton-herramienta img {
+  display: block;
+}
   
-  @media (max-width: 768px) {
-    .div-botones {
-      flex-direction: column;
-      gap: 15px;
-    }
+@media (max-width: 768px) {
+  .div-botones {
+    flex-direction: column;
+    gap: 15px;
   }
+}
   

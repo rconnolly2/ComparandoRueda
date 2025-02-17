@@ -1,14 +1,12 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
 import time
 import re
-import math
 
 def ConfigurarNavegador():
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
@@ -32,36 +30,50 @@ def ObtenerCochesWallapop(modelo, año):
     try:
         WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".ItemCardWide__title")))
 
+        # Obtengo el HTML de la página
         html = driver.page_source
         soup = BeautifulSoup(html, 'html.parser')
-        ads = soup.find_all('div', class_='ItemCardWide')
-
+        
+        # Encuentro todos los anuncios de coches
+        anuncios = soup.find_all('div', class_='ItemCardWide')
         coches = []
-        for ad in ads[:5]:
-            titulo = ad.find('span', class_='ItemCardWide__title').get_text(strip=True)
-            precio = ad.find('span', class_='ItemCardWide__price').get_text(strip=True)
-
+        
+        # Recorro los primeros 5 anuncios
+        for anuncio in anuncios[:5]:
+            # Obtengo el título del coche
+            titulo = anuncio.find('span', class_='ItemCardWide__title').get_text(strip=True)
+            
+            # Obtengo el precio del coche y lo limpio para quedarme solo con números
+            precio = anuncio.find('span', class_='ItemCardWide__price').get_text(strip=True)
             precio = re.sub(r'[^\d,]', '', precio)
             precio = precio.replace(',', '.')
 
+            # Si el precio tiene un punto, me quedo solo con la parte entera
             if '.' in precio:
                 precio = precio.split('.')[0]
 
+            # Intento convertir el precio a entero, si no puedo, lo pongo a 0
             try:
                 precio = int(precio)
             except ValueError:
                 precio = 0
 
-            extra_info = ad.find('div', class_='ItemExtraInfo d-flex')
+            # Busco información adicional del coche (detalles como ubicación, km, etc.)
+            extra_info = anuncio.find('div', class_='ItemExtraInfo d-flex')
             detalles = [label.get_text(strip=True) for label in extra_info.find_all('label')] if extra_info else []
 
-            description_tag = ad.find('span', class_='mt-2 ItemCardWide__description')
+            # Descripción del coche
+            description_tag = anuncio.find('span', class_='mt-2 ItemCardWide__description')
             descripcion = description_tag.get_text(strip=True) if description_tag else ''
+            
+            # Limito la descripción 40 palabras
             descripcion = ' '.join(descripcion.split()[:40])
 
-            imagen_url_tag = ad.find('img')
+            # Obtengo la URL de la imagen del coche, si existe
+            imagen_url_tag = anuncio.find('img')
             imagen_url = imagen_url_tag['src'] if imagen_url_tag else ''
 
+            # Agrego los datos del coche a la lista
             coches.append({
                 'titulo': titulo,
                 'precio': precio,
