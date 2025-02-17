@@ -1,6 +1,7 @@
 # ComparandoRuedas: Obtén datos de un coche
 
 ComparandoRuedas es un proyecto de entorno cliente que básicamente tiene como objetivo hacer un buscador de historial de coches utilizando la matrícula. Al principio, me di cuenta de que no cumplía con el mínimo de endpoints, por lo que decidí usar diferentes APIs relacionadas. Por ejemplo, la API de Google Imágenes me sirve para obtener 7 imágenes de un modelo de coche, las cuales luego inserto en un `div` que se utiliza como galería interactiva. También decidí usar una API de YouTube para obtener miniaturas, títulos y enlaces a videos relacionados con dos temas: comparativas con otros coches y reseñas. Me inspiré mucho en el diseño de coches.net para este tipo de sugerencias de video. 😉
+
 ![Pagina principal](/docs/img/home.png)
 ---
 
