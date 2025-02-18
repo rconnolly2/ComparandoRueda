@@ -18,5 +18,26 @@ Las tres funcionalidades principales de la aplicación son las siguientes. La id
 
 - **Mercado del coche**: Aquí podrás obtener un resumen de los coches más baratos en las Islas Baleares, con modelos y años similares al tuyo (dentro de un rango). Estos datos los obtengo de una API que he creado, la cual obtiene la información mediante web scraping de la web de Wallapop. Ha sido complicado realizar el scraping, ya que Wallapop tiene medidas para evitar que se haga web scraping en su sitio, pero finalmente lo he conseguido 😊.
 ![Precio de mercado](/docs/img/mercado.png)
-
 ---
+
+## Buscador
+
+Básicamente, así funciona el buscador:
+
+El usuario pone una matrícula válida en el campo del input. Esta se valida en la función `BuscarMatricula`. Si es válida, se hace la solicitud a la API de matrículas de coches. Si no se encuentra nada y se obtiene un `error 500`, es porque me he quedado sin saldo. Si se obtiene otro error, muestro el mensaje por consola y termino la búsqueda.
+
+El siguiente paso sería procesar la respuesta, ya que la API devuelve los datos en formato XML, pero tiene un campo `<vehicleJson></vehicleJson>` que contiene una versión de los datos. Esos son los datos que obtengo.
+
+El siguiente paso es procesar cada campo por la función `MostrarDatos`, que se encarga de mostrar los datos en el popup. Esta función llama a `ObtenerDato`, pasando el campo del JSON. Lo que hace esta función básicamente es que, si el campo es nulo, lo pone como `No encontrado`. Por último, se cierra el popup.
+
+![Buscador diagrama](/docs/diagramas/buscador_sequence.png)
+---
+
+## Datos Vehículo
+
+Al llegar a la página, crea un objeto de tipo `LocalStorageParser`, que se encarga de buscar en el `localStorage` si existe una key `matricula`. Si no existe, se redirige al cliente al `index.html`. Si existe, se parsea el JSON del `localStorage` y se crea un vehículo utilizando el constructor de la clase `Vehiculo`.
+
+La clase `Vehiculo` tiene getters que luego utilizaremos para la clase `DatosVehiculo`.
+
+La clase `DatosVehiculo()` se encarga primero de verificar que el vehículo que se pasa es efectivamente de tipo `Vehiculo` y luego llama a su función `ActualizarTituloDetalles()`, que lo que hace es actualizar la marca y modelo del `h1` de la página donde se crea el objeto. Luego también está `ActualizarDetallesVehiculo()`, que hace lo mismo pero con más campos, como por ejemplo el campo de puertas, motor, variación, etc.
+![Datos vehículo](/docs/diagramas/datos-vehiculo.png)
