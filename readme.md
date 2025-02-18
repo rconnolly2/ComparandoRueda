@@ -18,7 +18,6 @@ Las tres funcionalidades principales de la aplicación son las siguientes. La id
 
 - **Mercado del coche**: Aquí podrás obtener un resumen de los coches más baratos en las Islas Baleares, con modelos y años similares al tuyo (dentro de un rango). Estos datos los obtengo de una API que he creado, la cual obtiene la información mediante web scraping de la web de Wallapop. Ha sido complicado realizar el scraping, ya que Wallapop tiene medidas para evitar que se haga web scraping en su sitio, pero finalmente lo he conseguido 😊.
 ![Precio de mercado](/docs/img/mercado.png)
----
 
 ## Buscador
 
@@ -31,7 +30,6 @@ El siguiente paso sería procesar la respuesta, ya que la API devuelve los datos
 El siguiente paso es procesar cada campo por la función `MostrarDatos`, que se encarga de mostrar los datos en el popup. Esta función llama a `ObtenerDato`, pasando el campo del JSON. Lo que hace esta función básicamente es que, si el campo es nulo, lo pone como `No encontrado`. Por último, se cierra el popup.
 
 ![Buscador diagrama](/docs/diagramas/buscador_sequence.png)
----
 
 ## Datos Vehículo
 
