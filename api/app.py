@@ -21,7 +21,7 @@ def guardar_resultados_busqueda(resultados):
 @app.route('/api/coches', methods=['GET'])
 def obtener_coches():
     coche = request.args.get('coche', default='Seat Mii', type=str)
-    año = request.args.get('anio', default='Seat Mii', type=str)
+    año = request.args.get('anio', default='2020', type=str)
     
     resultados_busqueda = cargar_resultados()
     
