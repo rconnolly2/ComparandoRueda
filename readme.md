@@ -39,3 +39,17 @@ La clase `Vehiculo` tiene getters que luego utilizaremos para la clase `DatosVeh
 
 La clase `DatosVehiculo()` se encarga primero de verificar que el vehículo que se pasa es efectivamente de tipo `Vehiculo` y luego llama a su función `ActualizarTituloDetalles()`, que lo que hace es actualizar la marca y modelo del `h1` de la página donde se crea el objeto. Luego también está `ActualizarDetallesVehiculo()`, que hace lo mismo pero con más campos, como por ejemplo el campo de puertas, motor, variación, etc.
 ![Datos vehículo](/docs/diagramas/datos-vehiculo.png)
+
+## Galería imágenes coche
+
+En la página `vehiculo.html`, donde ya he cargado `local-storage-parser.js`, se han parseado los datos almacenados en el local storage con la key llamada `matricula`, y ya he creado el objeto de tipo `Vehiculo`.
+
+Luego, creo un `div` en el HTML llamado `contenedor-imagenes`, que almacenará todas las imágenes del modelo de coche. Después, incluyo la clase `GaleriaVehiculo`, que básicamente utiliza el método `GetDescription()` del objeto `Vehiculo` para llamar a la API de Google Imágenes con la función que he creado llamada `BuscarModeloDeCoche(modelo)`.  
+
+Esta función llama al endpoint: `/customsearch/v1?q=${modelo}&cx=${this.CX}&key=${this.API_KEY}&searchType=image&num=7&start=4`
+Este endpoint usa la key que he obtenido en la Google Developer Console para buscar únicamente imágenes a partir de la página 4, evitando imágenes repetidas y obteniendo solo 7 imágenes del modelo de coche que nos interesa.  
+
+A estas imágenes, como mencioné anteriormente, les asigno los atributos `src` y `alt`, y la función `AbrirModal(link-img)` con el link de la imagen para tener algo parecido a una "galería". Si no se encuentran imágenes del coche, lo cual sería raro, lanzo un `alert`...
+
+Si no se encuentran imágenes del coche que seria raro lanzo un alert...
+![Galería vehículo](/docs/diagramas/galeria-imagenes.png)
