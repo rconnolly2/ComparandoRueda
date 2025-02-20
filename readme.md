@@ -53,13 +53,13 @@ A estas imágenes, como mencioné anteriormente, les asigno los atributos `src` 
 
 Si no se encuentran imágenes del coche que seria raro lanzo un alert...
 ![Galería vehículo](/docs/diagramas/galeria-imagenes.png)
-![Galería](/img/galeria.png)
+![Galería](/docs/img/galeria.png)
 
 ## Sugerencias de videos modelo de coche
 
 En la página `vehiculo.html`, mi idea era tener algo muy similar a **coches.net**. Me gustaba mucho que, cuando miras algún anuncio de cualquier coche, sin importar el año del modelo, justo abajo aparecen diferentes videos de reviews de ese mismo coche, incluso comparativas.  
 
-![Videos coches.net](/img/coches-net-videos.png)  
+![Videos coches.net](/docs/img/coches-net-videos.png)  
 
 Entonces decidí que sería buena idea tener esta misma funcionalidad en mi proyecto.  
 
@@ -74,10 +74,10 @@ Luego, hago la petición AJAX a este endpoint: `https://www.googleapis.com/youtu
 
 Y por ultimo, voy insertando en el `div` llamado `contenedor-videos` las 2 sugerencias de video. Como muestro en esta imagen, simplemente creo un `div` con la clase de CSS `video`, que contiene un elemento `<a></a>` con `href` al video, la miniatura del video, una etiqueta del tipo de video (como en la web de coches.net), el título y una descripción.  
 
-![Sugerencias vehículo](/diagramas/galeria-video.png)  
+![Sugerencias vehiculos](/docs/diagramas/galeria-video.png)  
 
 En caso de no encontrar estos dos videos, lanzo un `alert`.  
 
 En el HTML de datos del vehículo, lo que hago es llamar a esta función **dos veces**, una con `comparativa` y otra con `review`, para obtener **cuatro sugerencias de video**, lo que se vería así:  
 
-![Diagrama videos](/img/sugerencias-video.png)  
+![Diagrama videos](/docs/img/sugerencias-video.png)  
