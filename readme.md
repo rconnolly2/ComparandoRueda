@@ -9,14 +9,17 @@ ComparandoRuedas es un proyecto de entorno cliente que básicamente tiene como o
 
 Las tres funcionalidades principales de la aplicación son las siguientes. La idea es que pongas la matrícula de tu coche o de un coche que deseas comprar y obtendrás un historial del coche, pero principalmente 3 cosas:
 
-- **Datos del coche**: Aquí podrás obtener todos los datos principales del coche como motor, puertas, modelo, fotos y videos, etc.  
+- **Datos del coche**: Aquí podrás obtener todos los datos principales del coche como motor, puertas, modelo, fotos y videos, etc.
+
 ![Datos coche](/docs/img/datos.png)  
 
-- **Registro DGT**: Aquí podrás obtener la fecha de la primera matrícula, tanto por día y mes y solo año. Además, podrás saber si te han robado el coche. 😂  
-![Datos DGT](/docs/img/datos-dgt.png)  
+- **Registro DGT**: Aquí podrás obtener la fecha de la primera matrícula, tanto por día y mes y solo año. Además, podrás saber si te han robado el coche. 😂
+
+![Datos DGT](/docs/img/datos-dgt.png)
 
 
 - **Mercado del coche**: Aquí podrás obtener un resumen de los coches más baratos en las Islas Baleares, con modelos y años similares al tuyo (dentro de un rango). Estos datos los obtengo de una API que he creado, la cual obtiene la información mediante web scraping de la web de Wallapop. Ha sido complicado realizar el scraping, ya que Wallapop tiene medidas para evitar que se haga web scraping en su sitio, pero finalmente lo he conseguido 😊.
+
 ![Precio de mercado](/docs/img/mercado.png)
 
 ## Buscador
@@ -38,6 +41,7 @@ Al llegar a la página, crea un objeto de tipo `LocalStorageParser`, que se enca
 La clase `Vehiculo` tiene getters que luego utilizaremos para la clase `DatosVehiculo`.
 
 La clase `DatosVehiculo()` se encarga primero de verificar que el vehículo que se pasa es efectivamente de tipo `Vehiculo` y luego llama a su función `ActualizarTituloDetalles()`, que lo que hace es actualizar la marca y modelo del `h1` de la página donde se crea el objeto. Luego también está `ActualizarDetallesVehiculo()`, que hace lo mismo pero con más campos, como por ejemplo el campo de puertas, motor, variación, etc.
+
 ![Datos vehículo](/docs/diagramas/datos-vehiculo.png)
 
 ## Galería imágenes coche
@@ -52,6 +56,7 @@ Este endpoint usa la key que he obtenido en la Google Developer Console para bus
 A estas imágenes, como mencioné anteriormente, les asigno los atributos `src` y `alt`, y la función `AbrirModal(link-img)` con el link de la imagen para tener algo parecido a una "galería". Si no se encuentran imágenes del coche, lo cual sería raro, lanzo un `alert`...
 
 Si no se encuentran imágenes del coche que seria raro lanzo un alert...
+
 ![Galería vehículo](/docs/diagramas/galeria-imagenes.png)
 ![Galería](/docs/img/galeria.png)
 
@@ -92,8 +97,9 @@ Aquí está el código para actualizar el div que nos verifica si nos han robado
 
 ![Código actualizar estado](/docs/img/codigo-actualizar-estado.png)  
 
-Los datos de la API que me interesan los guardo en el `localStorage`:  
+Los datos de la API que me interesan los guardo en el `localStorage`:
 ![Datos JSON](/docs/img/robado-json.png)  
 
-Y este es el resultado al llamar a la función `ActualizarEstadoVehiculo()`. Si el coche no ha sido robado, se muestra como no robado y te da consejos para evitar que te lo roben... 😂  
+Y este es el resultado al llamar a la función `ActualizarEstadoVehiculo()`. Si el coche no ha sido robado, se muestra como no robado y te da consejos para evitar que te lo roben... 😂
+
 ![No robado](/docs/img/no-robado.png)  
