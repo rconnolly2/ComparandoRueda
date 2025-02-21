@@ -80,4 +80,20 @@ En caso de no encontrar estos dos videos, lanzo un `alert`.
 
 En el HTML de datos del vehículo, lo que hago es llamar a esta función **dos veces**, una con `comparativa` y otra con `review`, para obtener **cuatro sugerencias de video**, lo que se vería así:  
 
-![Diagrama videos](/docs/img/sugerencias-video.png)  
+![Diagrama videos](/docs/img/sugerencias-video.png) 
+
+## Datos DGT
+
+En la página `datos-dgt.html`, he decidido mostrar los datos del objeto `Vehiculo`, pero solo el año/mes de matrícula. Esta vez, gracias a la función `ActualizarEstadoVehiculo()`, se actualiza el `div` con una alerta dependiendo de si el coche ha sido robado o no. Si no ha sido robado, muestro un video con consejos para evitar el robo.  
+
+![Diagrama datos DGT](/docs/diagramas/datos-dgt.png)  
+
+Aquí está el código para actualizar el div que nos verifica si nos han robado el coche:  
+
+![Código actualizar estado](/docs/img/codigo-actualizar-estado.png)  
+
+Los datos de la API que me interesan los guardo en el `localStorage`:  
+![Datos JSON](/docs/img/robado-json.png)  
+
+Y este es el resultado al llamar a la función `ActualizarEstadoVehiculo()`. Si el coche no ha sido robado, se muestra como no robado y te da consejos para evitar que te lo roben... 😂  
+![No robado](/docs/img/no-robado.png)  
